@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from "react";
 import { usePeerState as usePeerStateReactPeer } from "react-peer";
+import { DataConnection } from "peerjs";
 
 interface Options {
   brokerId?: string;
@@ -12,7 +13,7 @@ const usePeerState = <State>(
   state: State;
   setState: (state: State) => void;
   brokerId: string;
-  connections: unknown[];
+  connections: DataConnection[];
   error: any;
 } => {
   const internalOptions = useMemo<{ brokerId: string } | undefined>(() => {
